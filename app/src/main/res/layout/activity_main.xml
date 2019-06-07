@@ -46,8 +46,9 @@
             android:layout_height="fill_parent"
             android:layout_weight="1">
 
-            <Button
+            <TextView
                 android:id="@+id/time"
+                android:text="dupa_kacza"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 style="?android:attr/borderlessButtonStyle"

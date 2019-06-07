@@ -7,11 +7,13 @@ import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.watcher.time.CurrentTimeGetter;
 import com.example.watcher.weatherCall.MyRequestQueue;
 import com.example.watcher.weatherCall.WeatherRequest;
 
 public class MainActivity extends AppCompatActivity {
-    Spinner allCities;
+    private Spinner allCities;
+    private String currentCity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         allCities.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                currentCity = allCities.getSelectedItem().toString();
                 chooseCity();
             }
 
@@ -36,9 +39,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void chooseCity() {
-        String selectedCity = allCities.getSelectedItem().toString();
+        String selectedCity = currentCity;
         changeCityText(selectedCity);
         changeObservedWeather(selectedCity);
+        changeTime();
 
     }
 
@@ -58,8 +62,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void changeChat() {
-
+    private void changeTime() {
+        TextView selectedCity = findViewById(R.id.time);
+        CurrentTimeGetter.getInstance().getTime(currentCity, selectedCity);
     }
 
 
