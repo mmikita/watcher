@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Watcher</string>
+    <string name="Bialystok">Białystok</string>
+    <string-array name="miasta">
+        <item>Białystok</item>
+        <item>Tokio</item>
+    </string-array>
+</resources>
