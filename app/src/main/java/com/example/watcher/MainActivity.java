@@ -4,10 +4,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.watcher.time.CurrentTimeGetter;
+import com.example.watcher.weatherCall.CitiesCodes;
 import com.example.watcher.weatherCall.MyRequestQueue;
 import com.example.watcher.weatherCall.WeatherRequest;
 
@@ -19,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         allCities = findViewById(R.id.allCities);
+        allCities.setAdapter(new ArrayAdapter<CitiesCodes>(this, android.R.layout.simple_spinner_item, CitiesCodes.values()));
         allCities.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
