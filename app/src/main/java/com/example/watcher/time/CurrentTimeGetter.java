@@ -38,8 +38,8 @@ public class CurrentTimeGetter {
                 Date date = new Date();
                 TimeZone timeZone = TimeZone.getTimeZone(curentCountry);
                 formatter.setTimeZone(timeZone);
-                String dateInString = formatter.format(date); // Convert to String first
-                Date timeZoneTime = null; // Create a new Date object
+                String dateInString = formatter.format(date);
+                Date timeZoneTime = null;
                 try {
                     timeZoneTime = formatter.parse(dateInString);
                 } catch (ParseException e) {

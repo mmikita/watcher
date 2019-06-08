@@ -53,11 +53,11 @@
                 style="?android:attr/borderlessButtonStyle"
                 />
 
-            <Button
-                android:id="@+id/weatherIcon"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                style="?android:attr/borderlessButtonStyle"/>
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/w01s" />
         </TableRow>
 
         <TableRow
