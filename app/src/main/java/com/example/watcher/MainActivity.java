@@ -9,8 +9,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.watcher.time.CurrentTimeGetter;
-import com.example.watcher.weatherCall.CitiesCodes;
-import com.example.watcher.weatherCall.MyRequestQueue;
 import com.example.watcher.weatherCall.WeatherRequest;
 
 public class MainActivity extends AppCompatActivity {

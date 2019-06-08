@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.example.watcher.weatherCall.CitiesCodes;
+import com.example.watcher.CitiesCodes;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

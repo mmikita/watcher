@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Watcher</string>
     <string name="Bialystok">Białystok</string>
+    <string name="Weather">Pogoda</string>
     <string-array name="miasta">
         <item>Białystok</item>
         <item>Tokio</item>

@@ -1,4 +1,4 @@
-package com.example.watcher.weatherCall;
+package com.example.watcher;
 
 public enum CitiesCodes {
     Białystok("2-275110_1_AL", "Poland"),
