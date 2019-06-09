@@ -18,8 +18,7 @@
             android:id="@+id/allCities"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-             />
+            android:layout_weight="1" />
 
         <TextView
             android:id="@+id/selectedCity"
@@ -48,18 +47,15 @@
 
             <TextView
                 android:id="@+id/time"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
                 style="?android:attr/borderlessButtonStyle"
-                />
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" />
 
             <ImageView
                 android:id="@+id/imageView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="@drawable/w01s"
-                android:contentDescription="@string/Weather" />
+                android:layout_gravity="center" />
         </TableRow>
 
         <TableRow
@@ -70,15 +66,15 @@
 
             <Button
                 android:id="@+id/temperature"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                style="?android:attr/borderlessButtonStyle"/>
+                android:layout_height="fill_parent" />
 
             <Button
                 android:id="@+id/humidity"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                style="?android:attr/borderlessButtonStyle"/>
+                android:layout_height="fill_parent" />
         </TableRow>
 
     </TableLayout>

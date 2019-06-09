@@ -30,7 +30,6 @@ public class CurrentTimeGetter {
     public void getTime(String city, final TextView selectedCity) {
         final Handler handler = new Handler();
         curentCountry = CitiesCodes.valueOf(city).getCountry();
-        Log.i("dupa_kacza", curentCountry+" "+CitiesCodes.valueOf(city).getCountry()+" "+city);
         handler.post(new Runnable() {
             @Override
             public void run() {

@@ -2,6 +2,7 @@ package com.example.watcher;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -10,6 +11,9 @@ import android.widget.TextView;
 
 import com.example.watcher.time.CurrentTimeGetter;
 import com.example.watcher.weatherCall.WeatherRequest;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 public class MainActivity extends AppCompatActivity {
     private Spinner allCities;
@@ -55,9 +59,7 @@ public class MainActivity extends AppCompatActivity {
     private void changeObservedWeather(String city) {
         WeatherRequest weatherRequest = new WeatherRequest();
         weatherRequest.getWeather(city, this);
-
     }
-
     private void changeVideo() {
 
     }
