@@ -2,8 +2,10 @@ package com.example.watcher;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.text.Html;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -11,9 +13,6 @@ import android.widget.TextView;
 
 import com.example.watcher.time.CurrentTimeGetter;
 import com.example.watcher.weatherCall.WeatherRequest;
-
-import org.json.JSONArray;
-import org.json.JSONException;
 
 public class MainActivity extends AppCompatActivity {
     private Spinner allCities;
@@ -47,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         changeCityText(selectedCity);
         changeObservedWeather(selectedCity);
         changeTime();
+        changeVideo();
 
     }
 
@@ -60,7 +60,15 @@ public class MainActivity extends AppCompatActivity {
         WeatherRequest weatherRequest = new WeatherRequest();
         weatherRequest.getWeather(city, this);
     }
+
     private void changeVideo() {
+        WebView video = findViewById(R.id.video);
+        String iframe = "<p align=\"center\"><iframe width=\"90%\" height=\"90%\" src=\"https://www.youtube.com/embed/5K8T3_7Fb9s\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></p>";
+        video.getSettings().setJavaScriptEnabled(true);
+        video.loadData(iframe, "text/html", null);
+        video.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+        video.getSettings().setDefaultZoom(WebSettings.ZoomDensity.FAR);
+
 
     }
 
