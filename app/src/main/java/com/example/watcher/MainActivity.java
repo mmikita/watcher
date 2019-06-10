@@ -1,18 +1,30 @@
 package com.example.watcher;
 
 import android.os.Bundle;
+import android.os.StrictMode;
+import android.provider.DocumentsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.view.View;
+import android.webkit.JavascriptInterface;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.watcher.time.CurrentTimeGetter;
 import com.example.watcher.weatherCall.WeatherRequest;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
     private Spinner allCities;
@@ -46,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         changeCityText(selectedCity);
         changeObservedWeather(selectedCity);
         changeTime();
-        changeVideo();
+        changeVideo(selectedCity);
 
     }
 
@@ -61,20 +73,37 @@ public class MainActivity extends AppCompatActivity {
         weatherRequest.getWeather(city, this);
     }
 
-    private void changeVideo() {
+    private void changeVideo(String selectedCity) {
         WebView video = findViewById(R.id.video);
-        String iframe = "<p align=\"center\"><iframe width=\"90%\" height=\"90%\" src=\"https://www.youtube.com/embed/5K8T3_7Fb9s\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></p>";
+        video.setWebChromeClient(new WebChromeClient());
+        video.setWebViewClient(new WebViewClient());
         video.getSettings().setJavaScriptEnabled(true);
+        video.getSettings().setLoadWithOverviewMode(true);
+        video.getSettings().setUseWideViewPort(true);
+        String iframe = CitiesCodes.valueOf(selectedCity).getVideo();
         video.loadData(iframe, "text/html", null);
-        video.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
-        video.getSettings().setDefaultZoom(WebSettings.ZoomDensity.FAR);
 
 
     }
 
+
+
     private void changeTime() {
         TextView selectedCity = findViewById(R.id.time);
         CurrentTimeGetter.getInstance().getTime(currentCity, selectedCity);
+    }
+
+    public void onViewCreated(View view, Bundle savedInstanceState)
+    {
+        int SDK_INT = android.os.Build.VERSION.SDK_INT;
+        if (SDK_INT > 8)
+        {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+                    .permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+            //your codes here
+
+        }
     }
 
 

@@ -36,7 +36,7 @@
     <TableLayout
         android:id="@+id/tableLayout1"
         android:layout_width="fill_parent"
-        android:layout_height="187dp"
+        android:layout_height="186dp"
         android:stretchColumns="*">
 
         <TableRow
@@ -84,10 +84,10 @@
 
     <WebView
         android:id="@+id/video"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:gravity="center_vertical"
         android:layout_gravity="center_vertical"
-        android:layout_height="fill_parent" />
+        android:layout_height="match_parent" />
 
 
 </LinearLayout>
