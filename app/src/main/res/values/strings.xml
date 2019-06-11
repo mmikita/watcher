@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Watcher</string>
     <string name="Bialystok">Białystok</string>
+    <string name="Humidity">Wilgotność: </string>
+    <string name="Temperature">Temperatura: </string>
     <string name="Weather">Pogoda</string>
     <string-array name="miasta">
         <item>Białystok</item>

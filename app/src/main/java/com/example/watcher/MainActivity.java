@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         reformatted=false;
         allCities = findViewById(R.id.allCities);
-        allCities.setAdapter(new ArrayAdapter<CitiesCodes>(this, android.R.layout.simple_spinner_dropdown_item, CitiesCodes.values()));
+        allCities.setAdapter(new ArrayAdapter<CitiesCodes>(this, R.layout.spinner_item, CitiesCodes.values()));
         allCities.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             String cityName = city.name().replace("_", " ");
             citiesNames.add(cityName);
         }
-        allCities.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, citiesNames));
+        allCities.setAdapter(new ArrayAdapter<String>(this, R.layout.spinner_item, citiesNames));
     }
 
     public void chooseCity() {
