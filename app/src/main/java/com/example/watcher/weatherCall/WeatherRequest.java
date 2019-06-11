@@ -18,7 +18,7 @@ import org.json.JSONException;
 
 public class WeatherRequest {
 
-    private static String REQUEST_LINK = "http://dataservice.accuweather.com/currentconditions/v1/[cityCode]?details=true&apikey=FOkxhU3RkooJPFPAefMCDKSv6f30d2mq";
+    private static String REQUEST_LINK = "http://dataservice.accuweather.com/currentconditions/v1/[cityCode]?details=true&apikey=qptNqPrrSPj01KdIKeQsQA9BWCSOKLNW";
     private Context context;
 
     public void getWeather(String city, Context context) {

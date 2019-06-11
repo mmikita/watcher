@@ -25,6 +25,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private Spinner allCities;
@@ -86,25 +88,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
     private void changeTime() {
         TextView selectedCity = findViewById(R.id.time);
         CurrentTimeGetter.getInstance().getTime(currentCity, selectedCity);
     }
 
-    public void onViewCreated(View view, Bundle savedInstanceState)
-    {
-        int SDK_INT = android.os.Build.VERSION.SDK_INT;
-        if (SDK_INT > 8)
-        {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
-                    .permitAll().build();
-            StrictMode.setThreadPolicy(policy);
-            //your codes here
-
-        }
-    }
 
 
 }
