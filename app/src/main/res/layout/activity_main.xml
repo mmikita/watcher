@@ -14,11 +14,14 @@
         android:layout_height="50dp"
         android:orientation="horizontal">
 
-        <Spinner
+        <ListView
             android:id="@+id/allCities"
-            android:layout_width="wrap_content"
+            android:layout_width="32dp"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1">
+
+        </ListView>
+
 
         <TextView
             android:id="@+id/selectedCity"

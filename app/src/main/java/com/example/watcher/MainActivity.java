@@ -2,12 +2,15 @@ package com.example.watcher;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -19,7 +22,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private Spinner allCities;
+    private ListView allCities;
     private String currentCity;
     private boolean reformatted;
 
@@ -30,23 +33,20 @@ public class MainActivity extends AppCompatActivity {
         reformatted=false;
         allCities = findViewById(R.id.allCities);
         allCities.setAdapter(new ArrayAdapter<CitiesCodes>(this, R.layout.spinner_item, CitiesCodes.values()));
-        allCities.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+        allCities.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                currentCity = allCities.getSelectedItem().toString();
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                currentCity = ((TextView)view).getText().toString();
                 chooseCity();
                 if(!reformatted) {
                     reformatEntries();
                     reformatted=true;
                 }
             }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-                // your code here
-            }
-
         });
+
+
 
 
     }
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             String cityName = city.name().replace("_", " ");
             citiesNames.add(cityName);
         }
-        allCities.setAdapter(new ArrayAdapter<String>(this, R.layout.spinner_item, citiesNames));
+        allCities.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, citiesNames));
     }
 
     public void chooseCity() {
