@@ -64,17 +64,12 @@ public class MainActivity extends Activity {
 
     public void chooseCity() {
         String city = currentCity.replace(" ", "_");
-        changeCityText();
         changeObservedWeather(city);
         changeTime(city);
         changeVideo(city);
     }
 
-    private void changeCityText() {
-        TextView selectedCity = findViewById(R.id.selectedCity);
-        selectedCity.setText(currentCity);
 
-    }
 
     private void changeObservedWeather(String city) {
         WeatherRequest weatherRequest = new WeatherRequest();
