@@ -1,6 +1,7 @@
 package com.example.watcher.weatherCall;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.util.Log;
 import android.widget.ImageView;
@@ -20,9 +21,19 @@ public class WeatherRequest {
 
     private static String REQUEST_LINK = "http://dataservice.accuweather.com/currentconditions/v1/[cityCode]?details=true&apikey=qptNqPrrSPj01KdIKeQsQA9BWCSOKLNW";
     private Context context;
+    ProgressDialog progressBar;
+
 
     public void getWeather(String city, Context context) {
         this.context = context;
+
+        progressBar = new ProgressDialog(context);
+        progressBar.setMessage("Proszę czekać");
+        progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressBar.show();//displays the progress bar
+
+
+
         CitiesCodes citiesCodes = CitiesCodes.valueOf(city);
         String linkToRequest = REQUEST_LINK.replace("[cityCode]", citiesCodes.getCityCode());
 
@@ -34,6 +45,7 @@ public class WeatherRequest {
                     public void onResponse(JSONArray response) {
                         Log.i("OnResponse: ", response.toString());
                         setResponsetoView(response);
+                        progressBar.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
